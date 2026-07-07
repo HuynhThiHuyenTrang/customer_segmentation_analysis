@@ -146,7 +146,7 @@ Images/
 
 The following preprocessing tasks were completed before analysis.
 
-✅ Imported CSV files into SQL Server
+✅ Imported CSV files into SQL Server using the SSMS Flat File Import Wizard
 
 ✅ Checked missing values
 
@@ -158,7 +158,7 @@ The following preprocessing tasks were completed before analysis.
 
 ✅ Validated relational integrity
 
-✅ Calculated TotalPrice using
+✅ Calculated TotalPrice using product price, quantity, and discount
 
 ```
 TotalPrice = Price × Quantity × (1 − Discount)
