@@ -291,10 +291,8 @@ Grocery-Sales-Analysis
 │   └── employees.csv
 │
 ├── SQL
-│   ├── 01_Create_Database.sql
-│   ├── 02_Import_Data.sql
-│   ├── 03_Data_Preparation.sql
-│   └── 04_Customer_Behavior_Analysis.sql
+│   ├── 01_Data_Preparation.sql
+│   └── 02_Customer_Behavior_Analysis.sql
 │
 ├── PowerBI
 │   └── Grocery_Sales.pbix
