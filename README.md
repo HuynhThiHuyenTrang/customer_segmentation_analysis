@@ -2,19 +2,20 @@
 
 # 🛒 Grocery Sales Analysis
 
-### Customer Behavior Analysis using SQL Server & Power BI
+### End-to-End Customer Behavior Analysis using SQL Server, Python & Power BI
 
-A Data Analytics portfolio project focused on analyzing customer purchasing behavior using SQL Server and Power BI.
+A portfolio project demonstrating an end-to-end Data Analytics workflow, from database preparation and SQL analysis to advanced customer analytics and interactive Power BI dashboards.
 
-This project demonstrates practical skills in relational database management, SQL querying, data preparation, business analysis, and data visualization.
+This project analyzes supermarket customer purchasing behavior to support Customer Relationship Management (CRM). In addition to SQL-based business analysis, the project extends the original business scenario with RFM Analysis and Machine Learning-based customer segmentation.
 
-> **Project Scope:** This repository focuses on **Customer Behavior Analysis**, one of the business analysis scenarios based on the Grocery Sales Database.
+> **Project Scope:** This repository is based on the **Customer Behavior Analysis** business scenario from the Grocery Sales Database. It includes the original SQL business analysis together with advanced analytics using Python and Machine Learning.
 
-> **Note:** The original `sales.csv` file (~493 MB) is not included in this repository because it exceeds GitHub's file size limit. Please see `dataset/README.md` for more information.
+> **Note:** The original `sales.csv` file (~493 MB) is not included in this repository because it exceeds GitHub's file size limit. Please refer to `dataset/README.md` for instructions.
 
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-red?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-yellow?style=for-the-badge&logo=powerbi&logoColor=black)
-![SSMS](https://img.shields.io/badge/SSMS-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-orange?style=for-the-badge)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github)
 
@@ -30,7 +31,8 @@ This project demonstrates practical skills in relational database management, SQ
 - Dataset
 - Database Design
 - Data Preparation
-- Business Analysis
+- SQL Business Analysis
+- Advanced Analytics
 - Dashboard
 - Technologies Used
 - Project Structure
@@ -41,18 +43,24 @@ This project demonstrates practical skills in relational database management, SQ
 
 # 📖 Project Overview
 
-Customer behavior analysis plays an important role in helping retail businesses understand purchasing patterns and improve customer retention.
+Customer behavior analysis plays an important role in helping retail businesses understand purchasing patterns, improve customer retention, and increase customer value.
 
-This project analyzes a supermarket sales database using SQL Server and Power BI to answer business questions related to customer segmentation, customer loyalty, and purchasing behavior.
+This project analyzes a supermarket sales database using SQL Server and Power BI to answer key business questions related to customer segmentation, customer loyalty, and purchasing behavior.
 
-The project follows a typical Data Analytics workflow:
+To further extend the original business scenario, additional customer analytics techniques including **RFM Analysis** and **Machine Learning-based customer segmentation** are applied using Python.
 
-- Database Setup
+The project follows a complete end-to-end Data Analytics workflow:
+
+- Business Understanding
+- Database Design
 - Data Import
+- Data Validation
 - Data Preparation
-- SQL Analysis
+- SQL Business Analysis
+- Advanced Customer Analytics
 - Dashboard Development
 - Business Insights
+- Business Recommendations
 
 ---
 
@@ -62,23 +70,33 @@ A multinational supermarket wants to better understand customer purchasing behav
 
 Using historical transaction data, this project focuses on answering key business questions related to customer segmentation, customer retention, and purchasing behavior.
 
+The analysis supports marketing teams in identifying valuable customers, improving customer loyalty, and designing data-driven CRM strategies.
+
 ---
 
 # 🎯 Project Objectives
 
-This project aims to:
+## Core Business Analysis
 
 - Segment customers based on Purchase Frequency and Monetary Value.
 - Identify Repeat Customers and One-time Buyers.
 - Calculate Average Order Value (AOV).
 - Calculate Basket Size.
-- Generate business insights to support CRM strategies and customer retention.
+- Generate actionable business insights for CRM campaigns.
+
+## Advanced Analytics
+
+- Perform RFM (Recency, Frequency, Monetary) Analysis.
+- Build Machine Learning-based customer segmentation using K-Means Clustering.
+- Compare rule-based segmentation with ML-based clustering.
+- Identify high-value customer groups.
+- Generate data-driven marketing recommendations.
 
 ---
 
 # 📂 Dataset
 
-This project uses the **Grocery Sales Database**, which contains seven relational tables.
+This project uses the **Grocery Sales Database**, which consists of seven relational tables.
 
 | Table | Description |
 |--------|-------------|
@@ -94,7 +112,7 @@ This project uses the **Grocery Sales Database**, which contains seven relationa
 
 Due to GitHub's file size limitation, the original **sales.csv** file (~493 MB) is **not included** in this repository.
 
-The following dataset files are available:
+Available dataset files:
 
 - categories.csv
 - cities.csv
@@ -103,7 +121,7 @@ The following dataset files are available:
 - employees.csv
 - products.csv
 
-Please refer to **dataset/README.md** for additional information.
+Please refer to **dataset/README.md** for more information.
 
 ---
 
@@ -137,22 +155,23 @@ Please refer to **dataset/README.md** for additional information.
 
 ## Entity Relationship Diagram (ERD)
 
-The ERD will be added after the database documentation is completed.
+*The ERD illustrates the relationships between all tables in the Grocery Sales Database.*
 
 ---
 
 # 🧹 Data Preparation
 
-Before performing the analysis, the dataset was imported into SQL Server using the **SSMS Flat File Import Wizard**.
+The dataset was imported into SQL Server using the **SSMS Flat File Import Wizard**.
 
-The following preprocessing tasks were completed:
+The following data quality checks and preprocessing tasks were completed:
 
-- Imported CSV files into SQL Server
+- Imported seven CSV files into SQL Server
+- Validated record counts
 - Checked missing values
 - Checked duplicate records
 - Configured Primary Keys
 - Configured Foreign Keys
-- Validated relational integrity
+- Verified referential integrity
 - Calculated `TotalPrice` using product price, quantity, and discount
 
 Formula:
@@ -163,22 +182,20 @@ TotalPrice = Price × Quantity × (1 − Discount)
 
 ---
 
-# 📊 Business Analysis
+# 📊 SQL Business Analysis
 
-This project focuses on three business analysis tasks.
+The SQL analysis focuses on solving the original business requirements.
 
-## Task 1 — Customer Segmentation
+## Customer Segmentation
 
 Customers are segmented using:
 
 - Purchase Frequency
 - Monetary Value
 
-The segmentation helps identify different customer groups for CRM campaigns.
-
 ---
 
-## Task 2 — Repeat Customers vs One-time Buyers
+## Customer Retention
 
 Customers are classified into:
 
@@ -189,9 +206,9 @@ The percentage distribution is calculated to evaluate customer retention.
 
 ---
 
-## Task 3 — Purchasing Behavior
+## Purchasing Behavior
 
-The following metrics are calculated:
+Business metrics include:
 
 ### Average Order Value (AOV)
 
@@ -211,25 +228,89 @@ Total Quantity Sold
 Total Orders
 ```
 
-These metrics help understand customer purchasing behavior.
+These metrics help understand customer purchasing behavior and support business decision-making.
+
+---
+
+# 🚀 Advanced Analytics
+
+To extend the original business scenario, this project applies additional customer analytics techniques beyond SQL.
+
+## RFM Analysis
+
+Customers are evaluated using the RFM framework:
+
+- **Recency** – How recently a customer made a purchase.
+- **Frequency** – How often a customer purchases.
+- **Monetary** – How much a customer spends.
+
+The RFM model helps identify customer segments such as:
+
+- Champions
+- Loyal Customers
+- Potential Loyalists
+- New Customers
+- At Risk Customers
+- Lost Customers
+
+---
+
+## Machine Learning Customer Segmentation
+
+Customer-level features are prepared and standardized before applying **K-Means Clustering**.
+
+Workflow:
+
+1. Feature Engineering
+2. Data Standardization
+3. Elbow Method
+4. K-Means Clustering
+5. Cluster Interpretation
+6. Business Recommendations
+
+The resulting customer clusters are compared with the RFM segmentation to provide deeper business insights.
+
+---
+
+## Business Value
+
+Combining SQL analysis, RFM Analysis, and Machine Learning enables the business to:
+
+- Improve customer retention
+- Identify high-value customers
+- Support personalized marketing campaigns
+- Increase customer lifetime value
+- Support data-driven decision-making
 
 ---
 
 # 📈 Dashboard
 
-The Power BI dashboard will include:
+The Power BI dashboard transforms SQL outputs into interactive business reports.
 
+Dashboard includes:
+
+### Business KPIs
+
+- Total Revenue
 - Total Customers
+- Average Order Value
+- Basket Size
+
+### Customer Analytics
+
+- Customer Segmentation
 - Repeat Customers
 - One-time Buyers
-- Customer Segmentation
-- Average Order Value (AOV)
-- Basket Size
-- Top Customers
+- RFM Distribution
+- Customer Clusters
 - Revenue by Customer Segment
-- Customer Purchase Distribution
+- Top Customers
 
-Dashboard screenshots will be added after the visualization phase is completed.
+### Business Performance
+
+- Revenue Trend
+- Customer Purchase Distribution
 
 ---
 
@@ -237,11 +318,14 @@ Dashboard screenshots will be added after the visualization phase is completed.
 
 | Tool | Purpose |
 |------|---------|
-| SQL Server | Database Management |
-| SQL Server Management Studio (SSMS) | Data Import & SQL Development |
-| Power BI | Data Visualization |
+| Microsoft SQL Server | Database Management |
+| SQL Server Management Studio (SSMS) | SQL Development |
+| Python | Data Analysis |
+| Pandas | Data Processing |
+| Scikit-learn | Machine Learning |
+| Power BI | Dashboard Development |
 | Git | Version Control |
-| GitHub | Project Portfolio |
+| GitHub | Portfolio Management |
 
 ---
 
@@ -263,13 +347,20 @@ Grocery-Sales-Analysis/
 │   └── README.md
 │
 ├── images/
+│   ├── ERD.png
+│   ├── Dashboard.png
+│   └── Customer_Clusters.png
 │
-├── reports/
+├── notebooks/
+│   ├── 01_RFM_Analysis.ipynb
+│   └── 02_KMeans_Customer_Segmentation.ipynb
 │
 ├── sql/
 │   ├── 01_Data_Preparation.sql
-│   └── 02_Customer_Behavior_Analysis.sql
+│   ├── 02_Customer_Behavior_Analysis.sql
+│   └── 03_RFM_Analysis.sql
 │
+├── requirements.txt
 ├── LICENSE
 └── README.md
 ```
@@ -280,11 +371,11 @@ Grocery-Sales-Analysis/
 
 Future enhancements may include:
 
-- RFM Customer Segmentation
 - Customer Lifetime Value (CLV)
 - Customer Churn Prediction
 - Sales Forecasting
 - Product Recommendation System
+- Interactive Web Dashboard
 
 ---
 
@@ -294,7 +385,7 @@ Future enhancements may include:
 
 Recent Graduate | Aspiring Data Analyst
 
-This project was developed as part of my Data Analytics portfolio to demonstrate practical skills in SQL Server, Power BI, data preparation, and customer behavior analysis.
+This project was developed as part of my Data Analytics portfolio to demonstrate practical skills in SQL Server, Python, Machine Learning, Power BI, and business analysis.
 
 ---
 
