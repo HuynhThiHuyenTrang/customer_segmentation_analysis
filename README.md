@@ -330,6 +330,4 @@ Aspiring Data Analyst
 
 This project was developed as part of my Data Analytics portfolio to demonstrate SQL Server, data preparation, business analysis, and Power BI visualization skills.
 
----
 
-⭐ If you find this project useful, please consider giving it a star.
