@@ -4,14 +4,16 @@
 
 ### Customer Behavior Analysis using SQL Server & Power BI
 
-A complete end-to-end Data Analytics project covering database design, data preparation, business analysis, and interactive dashboard development.
+End-to-end Data Analytics project using SQL Server and Power BI to analyze supermarket sales and customer purchasing behavior.
+
+> **Note:** The original `sales.csv` file (~493 MB) is not included in this repository due to GitHub's file size limit. Please refer to `dataset/README.md` for more information.
 
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-red?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-yellow?style=for-the-badge&logo=powerbi&logoColor=black)
 ![SSMS](https://img.shields.io/badge/SSMS-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github)
-![Power Query](https://img.shields.io/badge/Power%20Query-217346?style=for-the-badge)
+
 </div>
 
 ---
@@ -31,6 +33,7 @@ A complete end-to-end Data Analytics project covering database design, data prep
 - Technologies Used
 - Project Structure
 - Future Improvements
+- Author
 
 ---
 
@@ -38,39 +41,40 @@ A complete end-to-end Data Analytics project covering database design, data prep
 
 This project analyzes a supermarket sales database using **SQL Server** and **Power BI** to better understand customer purchasing behavior and support data-driven business decisions.
 
-The project follows the complete data analytics workflow:
+The project follows a complete end-to-end Data Analytics workflow:
 
 - Database Design
+- Data Import
 - Data Preparation
 - Exploratory Data Analysis (EDA)
 - Business Analysis
 - Data Visualization
 - Business Insights
-- Recommendations
+- Business Recommendations
 
 ---
 
 # 🎯 Business Understanding
 
-The supermarket management team wants to improve customer retention and marketing performance by understanding purchasing behavior.
+The supermarket management team aims to improve customer retention and marketing performance by understanding customer purchasing behavior.
 
-The Marketing department requires data-driven insights to answer the following questions:
+This project focuses on answering the following business questions:
 
 - Who are the most valuable customers?
-- How many customers return to purchase again?
-- What is the average order value?
-- How many products are purchased in each order?
-- How can customers be segmented for CRM campaigns?
+- How many customers make repeat purchases?
+- What is the Average Order Value (AOV)?
+- What is the average Basket Size?
+- How can customers be segmented to support CRM strategies?
 
 ---
 
 # 🎯 Project Objectives
 
-The project focuses on four major objectives:
+The project addresses four key objectives.
 
 ### Customer Segmentation
 
-Segment customers according to purchasing behavior.
+Segment customers based on purchasing behavior.
 
 ### Customer Retention
 
@@ -88,21 +92,40 @@ Analyze Basket Size to understand purchasing patterns.
 
 # 📂 Dataset
 
-The Grocery Sales Database consists of seven relational tables.
+This project uses the **Grocery Sales Database**, which consists of seven relational tables.
 
 | Table | Description |
 |--------|-------------|
 | Sales | Sales transaction records |
 | Customers | Customer information |
-| Products | Product information |
+| Products | Product master data |
 | Categories | Product categories |
-| Employees | Sales employees |
-| Cities | Customer location |
+| Employees | Sales employee information |
+| Cities | Customer city information |
 | Countries | Country information |
+
+### Dataset Availability
+
+The original **sales.csv** file (~493 MB) is **not included** in this repository because it exceeds GitHub's file size limit.
+
+The following dataset files are available:
+
+- categories.csv
+- cities.csv
+- countries.csv
+- customers.csv
+- employees.csv
+- products.csv
+
+For more details, please refer to:
+
+```text
+dataset/README.md
+```
 
 ---
 
-# 🗄 Database Design
+# 🗄️ Database Design
 
 ## Primary Keys
 
@@ -132,14 +155,9 @@ The Grocery Sales Database consists of seven relational tables.
 
 ---
 
-### Entity Relationship Diagram
+## Entity Relationship Diagram (ERD)
 
-> *(Insert ERD image here)*
-
-```
-Images/
-    ERD.png
-```
+The Entity Relationship Diagram (ERD) will be added after the database documentation is completed.
 
 ---
 
@@ -147,19 +165,15 @@ Images/
 
 The following preprocessing tasks were completed before analysis.
 
-✅ Imported CSV files into SQL Server using the SSMS Flat File Import Wizard
+- Imported CSV files into SQL Server using the **SSMS Flat File Import Wizard**
+- Checked missing values
+- Checked duplicate records
+- Configured Primary Keys
+- Configured Foreign Keys
+- Validated referential integrity
+- Calculated **TotalPrice** using product price, quantity, and discount
 
-✅ Checked missing values
-
-✅ Checked duplicate records
-
-✅ Created Primary Keys
-
-✅ Created Foreign Keys
-
-✅ Validated relational integrity
-
-✅ Calculated TotalPrice using product price, quantity, and discount
+Formula:
 
 ```
 TotalPrice = Price × Quantity × (1 − Discount)
@@ -169,9 +183,11 @@ TotalPrice = Price × Quantity × (1 − Discount)
 
 # 📊 Business Analysis
 
+The project focuses on customer purchasing behavior.
+
 ## Customer Segmentation
 
-Customers are segmented based on:
+Customers are segmented using:
 
 - Purchase Frequency
 - Monetary Value
@@ -180,7 +196,7 @@ Customers are segmented based on:
 
 ## Repeat Customers vs One-time Buyers
 
-Customers are classified into
+Customers are classified into:
 
 - Repeat Customers
 - One-time Buyers
@@ -194,9 +210,10 @@ The percentage distribution is calculated to evaluate customer retention.
 Formula
 
 ```
-AOV = Total Revenue
-      -------------
-      Total Orders
+AOV =
+Total Revenue
+-------------
+Total Orders
 ```
 
 ---
@@ -216,14 +233,14 @@ Total Orders
 
 # 📈 Dashboard
 
-The Power BI dashboard includes
+The Power BI dashboard will include:
 
 - Total Revenue
 - Total Customers
 - Repeat Customers
 - One-time Buyers
 - Customer Segmentation
-- Average Order Value
+- Average Order Value (AOV)
 - Basket Size
 - Revenue Trend
 - Top Customers
@@ -231,77 +248,62 @@ The Power BI dashboard includes
 
 ---
 
-### Dashboard Preview
+## Dashboard Preview
 
-> *(Insert dashboard screenshot here)*
-
-```
-Images/
-    Dashboard.png
-```
+Dashboard screenshots will be added after the visualization phase is completed.
 
 ---
 
 # 💡 Business Insights
 
-Example findings:
-
-- Repeat customers contribute a significant portion of total revenue.
-- A large percentage of customers purchase only once.
-- Customers with higher basket sizes tend to generate higher order values.
-- Loyal customers present strong opportunities for CRM campaigns.
+Business insights will be updated after completing the customer behavior analysis.
 
 ---
 
 # 🚀 Business Recommendations
 
-Based on the analysis:
-
-- Develop customer loyalty programs.
-- Offer personalized promotions.
-- Increase cross-selling opportunities.
-- Reward repeat customers with exclusive discounts.
-- Launch retention campaigns targeting one-time buyers.
+Business recommendations will be provided after analyzing customer purchasing behavior and sales performance.
 
 ---
 
-# 🛠 Technologies Used
+# 🛠️ Technologies Used
 
 | Tool | Purpose |
 |------|---------|
 | SQL Server | Database Management |
-| SSMS | SQL Development |
+| SQL Server Management Studio (SSMS) | Data Import & SQL Development |
 | Power BI | Dashboard & Visualization |
 | Git | Version Control |
-| GitHub | Portfolio |
+| GitHub | Portfolio & Project Management |
 
 ---
 
 # 📁 Project Structure
 
-```
+```text
 Grocery-Sales-Analysis
 │
-├── Dataset
-│   ├── sales.csv
-│   ├── customers.csv
-│   ├── products.csv
+├── dashboard
+│   └── Grocery_Sales.pbix
+│
+├── dataset
 │   ├── categories.csv
 │   ├── cities.csv
 │   ├── countries.csv
-│   └── employees.csv
+│   ├── customers.csv
+│   ├── employees.csv
+│   ├── products.csv
+│   └── README.md
 │
-├── SQL
+├── images
+│
+├── reports
+│
+├── sql
 │   ├── 01_Data_Preparation.sql
 │   └── 02_Customer_Behavior_Analysis.sql
 │
-├── PowerBI
-│   └── Grocery_Sales.pbix
-│
-├── Images
-│   ├── ERD.png
-│   └── Dashboard.png
-│
+├── LICENSE
 └── README.md
 ```
 
@@ -309,13 +311,14 @@ Grocery-Sales-Analysis
 
 # 📌 Future Improvements
 
-Future work may include:
+Potential future enhancements include:
 
-- RFM Analysis
-- Customer Lifetime Value (CLV)
+- RFM Customer Segmentation
+- Customer Lifetime Value (CLV) Analysis
 - Customer Churn Prediction
 - Sales Forecasting
 - Product Recommendation System
+- Interactive Executive Dashboard
 
 ---
 
@@ -325,8 +328,8 @@ Future work may include:
 
 Aspiring Data Analyst
 
-GitHub Portfolio Project
+This project was developed as part of my Data Analytics portfolio to demonstrate SQL Server, data preparation, business analysis, and Power BI visualization skills.
 
 ---
 
-⭐ If you found this project useful, feel free to star the repository.
+⭐ If you find this project useful, please consider giving it a star.
